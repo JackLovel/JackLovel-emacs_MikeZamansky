@@ -50,37 +50,38 @@
        ((t (:inherit ace-jump-face-foreground :height 3.0)))))
     ))
 
+;; it looks like counsel is a requirement for swiper
 (use-package counsel
   :ensure t)
 
+(use-package ivy 
+  :ensure t
+  :diminish (ivy-mode)
+  :bind (("C-x b" . ivy-switch-buffer))
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-display-style 'fancy))
+
 ;; 搜索: swiper
 (use-package swiper
-  :ensure try 
+  :ensure try
+  :bind (("C-s" . swiper)
+	 ("C-r" . swiper)
+	 ("C-c C-r" . ivy-resume)
+	 ("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file))
   :config
   (progn
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t)
-    ;; enable this if you want `swiper' to use it
-    ;; (setq search-default-mode #'char-fold-to-regexp)
-    (global-set-key "\C-s" 'swiper)
-    (global-set-key (kbd "C-c C-r") 'ivy-resume)
-    (global-set-key (kbd "<f6>") 'ivy-resume)
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-    (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-    (global-set-key (kbd "<f1> l") 'counsel-find-library)
-    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-    (global-set-key (kbd "C-c g") 'counsel-git)
-    (global-set-key (kbd "C-c j") 'counsel-git-grep)
-    (global-set-key (kbd "C-c k") 'counsel-ag)
-    (global-set-key (kbd "C-x l") 'counsel-locate)
-    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+    (setq ivy-display-style 'fancy)
     (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
     ))
+
+(use-package avy
+  :ensure t
+  :bind ("M-s" . avy-goto-char))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
