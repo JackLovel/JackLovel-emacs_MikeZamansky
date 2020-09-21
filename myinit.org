@@ -101,7 +101,4 @@
   :config (load-theme 'zenburn t)
   )
 #+END_SRC
-* 临时文件
-#+BEGIN_SRC emacs-lisp 
-(setq auto-save-default nil)
-#+END_SRC
+
