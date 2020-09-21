@@ -1,7 +1,7 @@
-* org mode ²âÊÔ
+* org mode æµ‹è¯•
 ** org mode 1
 - org 1
 - org 2 
 
-* emacs Ö÷Ò³
-- [[https://www.gnu.org/s/emacs/][emacs homepage]]
+* emacs ä¸»é¡µ
+- [[https://www.gnu.org/s/emacs/][emacs home
