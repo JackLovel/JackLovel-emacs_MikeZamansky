@@ -1,0 +1,7 @@
+* org mode ฒโสิ
+** org mode 1
+- org 1
+- org 2 
+
+* emacs ึ๗าณ
+- [[https://www.gnu.org/s/emacs/][emacs homepage]]
