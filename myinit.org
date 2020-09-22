@@ -6,6 +6,8 @@
 (tool-bar-mode -1)
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-set-key (kbd "<f5>") 'revert-buffer)
+; 高亮所在行
+(global-hl-line-mode t)
 #+END_SRC
 
 * try 
@@ -147,4 +149,24 @@
 :ensure t
 :init
 (global-undo-tree-mode))
+#+END_SRC 
+* misc packages 
+#+BEGIN_SRC emacs-lisp 
+(use-package beacon
+:ensure t 
+:config 
+(beacon-mode 1)
+;(setq beacon-color "#666600")
+)
+
+(use-package hungry-delete
+:ensure t
+:config 
+(global-hungry-delete-mode))
+
+; 选择一个范围里的内容
+(use-package expand-region
+:ensure t 
+:config 
+(global-set-key (kbd "C-=") 'er/expand-region))
 #+END_SRC 
