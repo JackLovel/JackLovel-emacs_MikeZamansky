@@ -6,12 +6,18 @@
 #+END_SRC
 * interface tweaks 
 #+BEGIN_SRC emacs-lisp 
-(setq inhibit-startup-message t)
-(tool-bar-mode -1)
-(fset 'yes-or-no-p 'y-or-n-p)
-(global-set-key (kbd "<f5>") 'revert-buffer)
-; 高亮所在行
-(global-hl-line-mode t)
+  (setq inhibit-startup-message t)
+  (tool-bar-mode -1)
+  (fset 'yes-or-no-p 'y-or-n-p)
+  (global-set-key (kbd "<f5>") 'revert-buffer)
+  ; 高亮所在行
+  (global-hl-line-mode t)
+
+  ; 
+  (setq save-interprogram-paste-before-kill t)
+  (global-auto-revert-mode 1)
+  (setq auto-revert-verbose nil)
+  (global-set-key (kbd "<f5>") 'revert-buffer)
 #+END_SRC
 
 * try 
@@ -31,73 +37,73 @@
 
 * the rest 
 #+BEGIN_SRC emacs-lisp 
-;; org-mode stuff
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda() (org-bullets-mode 1))))
+  ;; org-mode stuff
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda() (org-bullets-mode 1))))
 
-;; buffer switch: C-x b 
-(setq indo-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-;; buffer 列表
-(defalias 'list-buffers 'ibuffer)
+  ;; buffer switch: C-x b 
+  (setq indo-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+  ;; buffer 列表
+  (defalias 'list-buffers 'ibuffer)
 
 
-;; 窗口跳转
-;; M-o 1
-(use-package ace-window
-  :bind ("M-o" . ace-window)
-  :ensure t
-  :init
-  (progn
-   ;; (global-set-key [remap other-window] 'ace-window)
-    (custom-set-faces
-     '(aw-leading-char-face
-       ((t (:inherit ace-jump-face-foreground :height 3.0)))))
-    ))
+  ;; 窗口跳转
+  ;; M-o 1
+  (use-package ace-window
+    :bind ("M-o" . ace-window)
+    :ensure t
+    :init
+    (progn
+     ;; (global-set-key [remap other-window] 'ace-window)
+      (custom-set-faces
+       '(aw-leading-char-face
+	 ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+      ))
 
-;; it looks like counsel is a requirement for swiper
-(use-package counsel
-  :ensure t)
+  ;; it looks like counsel is a requirement for swiper
+  (use-package counsel
+    :ensure t)
 
-(use-package ivy 
-  :ensure t
-  :diminish (ivy-mode)
-  :bind (("C-x b" . ivy-switch-buffer))
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-display-style 'fancy))
-
-;; 搜索: swiper
-(use-package swiper
-  :ensure try
-  :bind (("C-s" . swiper)
-	 ("C-r" . swiper)
-	 ("C-c C-r" . ivy-resume)
-	 ("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file))
-  :config
-  (progn
+  (use-package ivy 
+    :ensure t
+    :diminish (ivy-mode)
+    :bind (("C-x b" . ivy-switch-buffer))
+    :config
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
-    (setq ivy-display-style 'fancy)
-    (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-    ))
+    (setq ivy-display-style 'fancy))
 
-(use-package avy
-  :ensure t
-  :bind ("M-s" . avy-goto-char))
+  ;; 搜索: swiper
+  (use-package swiper
+    :ensure try
+    :bind (("C-s" . swiper)
+	   ("C-r" . swiper)
+	   ("C-c C-r" . ivy-resume)
+	   ("M-x" . counsel-M-x)
+	   ("C-x C-f" . counsel-find-file))
+    :config
+    (progn
+      (ivy-mode 1)
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-display-style 'fancy)
+      (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+      ))
 
-(use-package auto-complete
-  :ensure t
-  :init
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)
-    ))
+  (use-package avy
+    :ensure t
+    :bind ("M-s" . avy-goto-char))
+
+  (use-package auto-complete
+    :ensure t
+    :init
+    (progn
+      (ac-config-default)
+      (global-auto-complete-mode t)
+      ))
 #+END_SRC
 
 * theme
@@ -204,9 +210,7 @@
 	 (t (narrow-to-defun))))
 	 
 	 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
-#+END_SRC 
-
-
+#+END_SRC
 * load other files
 #+BEGIN_SRC emacs-lisp 
   (defun load-if-exists (f)
