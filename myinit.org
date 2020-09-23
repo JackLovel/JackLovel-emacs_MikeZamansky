@@ -169,7 +169,10 @@
 :ensure t 
 :config 
 (global-set-key (kbd "C-=") 'er/expand-region))
+#+END_SRC
 
+* iedit and narrow / widen dwim
+#+BEGIN_SRC emacs-lisp 
 (use-package iedit
 :ensure t)
 
@@ -198,3 +201,5 @@
 	 
 	 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
 #+END_SRC 
+
+
