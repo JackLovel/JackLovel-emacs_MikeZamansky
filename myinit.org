@@ -1,5 +1,9 @@
 #+STARTIP: overview 
 
+* keyboard 
+#+BEGIN_SRC emacs-lisp 
+; C-c ' 修改emacs-lisp 区域内的代码
+#+END_SRC
 * interface tweaks 
 #+BEGIN_SRC emacs-lisp 
 (setq inhibit-startup-message t)
@@ -203,3 +207,12 @@
 #+END_SRC 
 
 
+* load other files
+#+BEGIN_SRC emacs-lisp 
+  (defun load-if-exists (f)
+    "检测文件是否存在"
+    (if (file-readable-p f)
+	(load-file f)))
+
+  (load-if-exists "something.el")
+#+END_SRC
