@@ -29,3 +29,5 @@
 (set-face-attribute 'default nil :height 170)
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/myinit.org"))
+(put 'narrow-to-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
