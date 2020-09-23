@@ -220,3 +220,15 @@
 
   (load-if-exists "something.el")
 #+END_SRC
+* web mode
+#+BEGIN_SRC emacs-lisp 
+  (use-package web-mode
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    (setq web-mode-engines-alist
+	  '(("django" . "\\.html\\'")))
+    (setq web-mode-ac-sources-alist))
+  '(("css" . (ac-source-css-property)
+     ("html". (ac-source-words-in-buffer ac-source-abbrev)))
+#+END_SRC 
