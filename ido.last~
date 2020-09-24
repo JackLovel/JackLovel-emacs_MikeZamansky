@@ -1,0 +1,26 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/gog/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/gog/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "myinit.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/gog/.emacs.d/" (24426 41833 198601 866000) "myinit.org" "auto-save-list/" ".gitignore~" "recentf~" "elpa/" "recentf" "README.md" ".#myinit.org" "elpy/" ".python-environments/" ".git/" "../" "snippets/" "init.el" "myinit.el" ".gitignore" "sample/" "ac-comphist.dat" "./")
+
+ ("/home/gog/" (24426 41965 842525 125000) "TreeViewDemo2/" ".steam/" ".ghc/" ".elfeed/" "fontPro/" ".paradoxinteractive/" ".mysql_history" ".profile" "test.py" "build-TreeViewDemo2-Desktop_Qt_5_14_2_GCC_64bit-Debug/" ".zshrc" "TreeViewDemo/" ".gemrc" ".presage/" "myinit.org" ".wget-hsts" ".bash_logout" ".pulse-cookie" ".kde/" "test.py~" "snap/" ".stack/" "视频/" "2020-08-18 19-11-03.mkv" ".dbus/" "文档/" "untitled/" ".gphoto/" "公共的/" ".sudo_as_admin_successful" ".xinputrc" "Qt及Qt Quick开发实战精解.rar" ".android/" "Downloads/" ".zcompdump" ".bashrc" "HelloWeb/" "stardew_valley/" "gtkdemo/" ".nuget/" ".m2/" ".gradle/" ".gem/" ".bash_history" ".templateengine/" "diablo/" ".steampid" "setting.ini" ".fonts.conf" ".xsession-errors" "VirtualBox VMs/" "GoblinzStudio/" ".gnome/" "source/" "qtProejct/" "模板/" ".aspnet/" "go/" ".gitconfig" ".config/" ".java/" ".emacs.d/" "Program.cs" ".local/" "goDemo/" ".pki/" ".Xauthority" "../" "gog.csproj" ".icons/" ".rustup/" ".steampath" ".bundle/" "Hello/" ".gtkrc-2.0" "IdeaProjects/" ".texlive2020/" ".mono/" "goPro/" ".dotnet/" "gitPro/" ".ssh/" ".microsoft/" ".cache/" ".thunderbird/" ".vscode/" ".face.icon" "build-untitled-Desktop_Qt_5_14_2_GCC_64bit-Debug/" ".face" "obj/" ".omnisharp/" "桌面/" ".python_history" "音乐/" ".mozilla/" ".jdks/" ".gnupg/" ".cargo/" "rustPro/" "./" "图片/" "下载/" "game/" "test/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
