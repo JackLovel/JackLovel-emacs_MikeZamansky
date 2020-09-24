@@ -7,6 +7,6 @@
 // counsel-ag depend
 $ sudo apt install -y silversearcher-ag
 
-// ggtags depend
+// ggtags depend or use speedbar  
 $ sudo apt install -y global
 ```
