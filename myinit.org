@@ -266,3 +266,17 @@
     (("C-'" . better-shell-shell) ;open shell 
      ("C-;" . better-shell-remote-open)))
 #+END_SRC
+
+
+* c++ 
+#+BEGIN_SRC emacs-lisp 
+  (use-package ggtags
+    :ensure t
+    :config
+    (add-hook 'c-mode-common-hook
+              (lambda ()
+                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                  (ggtags-mode 1))))
+    )
+
+#+END_SRC
