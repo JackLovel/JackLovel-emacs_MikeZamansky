@@ -36,13 +36,7 @@
 #+END_SRC 
 
 * the rest 
-#+BEGIN_SRC emacs-lisp 
-  ;; org-mode stuff
-  (use-package org-bullets
-    :ensure t
-    :config
-    (add-hook 'org-mode-hook (lambda() (org-bullets-mode 1))))
-
+#+BEGIN_SRC emacs-lisp
   ;; buffer switch: C-x b 
   (setq indo-enable-flex-matching t)
   (setq ido-everywhere t)
@@ -233,3 +227,28 @@
 	     ("html". (ac-source-words-in-buffer ac-source-abbrev))))
      (setq web-mode-enable-auto-closing t))
 #+END_SRC 
+*  org mode 
+#+BEGIN_SRC emacs-lisp 
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+  (custom-set-variables
+   '(org-directory "~/Dropbox/orgfiles")
+   '(org-default-notes-file (concat org-directory "/notes.org"))
+   '(org-export-html-postamble nil)
+   '(org-hide-leading-stars t)
+   '(org-startup-folded (quote overview))
+   '(org-startup-indented t))
+
+  ;(setq org-file-apps
+  ;      (append '(
+  ;                ("\\.pdf'\\" . evince %s)
+                                          ;                ("\\.x?html?\\'" . "/usr/bin/firefox %s")
+                                          ;               ) org-file-apps ))
+
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+#+END_SRC
