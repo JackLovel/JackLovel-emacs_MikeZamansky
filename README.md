@@ -10,3 +10,7 @@ $ sudo apt install -y silversearcher-ag
 // ggtags depend or use speedbar  
 $ sudo apt install -y global
 ```
+# install 
+```
+git clone 
+```
