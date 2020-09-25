@@ -514,3 +514,7 @@
 ; treemacs-projectile 
 #+END_SRC
 
+* dired 
+#+BEGIN_SRC emacs-lisp
+ 
+#+END_SRC
