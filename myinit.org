@@ -287,28 +287,29 @@
 #+END_SRC 
 * org mode 
 #+BEGIN_SRC emacs-lisp 
-  (use-package org-bullets
-    :ensure t
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    (use-package org-bullets
+      :ensure t
+      :config
+      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-  (custom-set-variables
-   '(org-directory "~/Dropbox/orgfiles")
-   '(org-default-notes-file (concat org-directory "/notes.org"))
-   '(org-export-html-postamble nil)
-   '(org-hide-leading-stars t)
-   '(org-startup-folded (quote overview))
-   '(org-startup-indented t))
+    (custom-set-variables
+     '(org-directory "~/Dropbox/orgfiles")
+     '(org-default-notes-file (concat org-directory "/notes.org"))
+     '(org-export-html-postamble nil)
+     '(org-hide-leading-stars t)
+     '(org-startup-folded (quote overview))
+     '(org-startup-indented t))
 
-  ;(setq org-file-apps
-  ;      (append '(
-  ;                ("\\.pdf'\\" . evince %s)
-                                          ;                ("\\.x?html?\\'" . "/usr/bin/firefox %s")
-                                          ;               ) org-file-apps ))
+    ;(setq org-file-apps
+    ;      (append '(
+    ;                ("\\.pdf'\\" . evince %s)
+                                            ;                ("\\.x?html?\\'" . "/usr/bin/firefox %s")
+                                            ;               ) org-file-apps ))
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
 
-  (global-set-key "\C-ca" 'org-agenda)
-  (global-set-key (kbd "C-c c") 'org-capture)
-
+;编辑 org 文件代码段里的代码
+(global-set-key (kbd "C-e") 'org-edit-special)
 #+END_SRC
 * shell 
 #+BEGIN_SRC emacs-lisp 
@@ -361,4 +362,17 @@
            ("M-g z" . dumb-jump-go-prefer-external-other-window))
     :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
     :init(dumb-jump-mode))
+#+END_SRC
+
+* smartparents 
+#+BEGIN_SRC emacs-lisp 
+  (use-package samrtparents
+    :ensure t
+    :hook (prog-mode . samrtparents-mode)
+    :custom
+    (sp-escappe-quotes-after-insert nil)
+    :config
+    (require 'samrtparents-config))
+
+  (show-paren-mode t)
 #+END_SRC
