@@ -160,8 +160,8 @@
 :ensure t
 :init
 (global-undo-tree-mode))
-#+END_SRC 
-=======
+#+END_SRC
+* reveal.js
 #+BEGIN_SRC emacs-lisp 
 (use-package ox-reveal
 :ensure ox-reveal)
@@ -348,10 +348,17 @@
       :config
       (counsel-projectile-mode))
 
-  (global-set-key (kbd "C-c C-p") 'counsel-projectile-switch-project)
+  (global-set-key (kbd "C-c p") 'counsel-projectile-switch-project)
 #+END_SRC
 
 * Dumb jump 
 #+BEGIN_SRC emacs-lisp 
-
+  (use-package dumb-jump
+    :ensure t
+    :bind (("M-g o" . dumb-jump-go-other-window)
+           ("M-g j" . dumb-jump-go)
+           ("M-g x" . dumb-jump-go-prefer-external)
+           ("M-g z" . dumb-jump-go-prefer-external-other-window))
+    :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+    :init(dumb-jump-mode))
 #+END_SRC
