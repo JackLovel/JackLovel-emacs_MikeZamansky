@@ -12,5 +12,5 @@ $ sudo apt install -y global
 ```
 # install 
 ```
-git clone git@github.com:JackLovel/JackLovel-emacs_MikeZamansky.git .emacs.d
+cd;git clone git@github.com:JackLovel/JackLovel-emacs_MikeZamansky.git .emacs.d
 ```
