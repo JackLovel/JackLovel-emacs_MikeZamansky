@@ -353,7 +353,9 @@
 #+END_SRC
 
 * Dumb jump 
+
 #+BEGIN_SRC emacs-lisp 
+; 函数定义跳转
   (use-package dumb-jump
     :ensure t
     :bind (("M-g o" . dumb-jump-go-other-window)
