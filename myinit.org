@@ -366,13 +366,13 @@
 
 * smartparents 
 #+BEGIN_SRC emacs-lisp 
-  (use-package samrtparents
+  (use-package smartparens
     :ensure t
-    :hook (prog-mode . samrtparents-mode)
+    :hook (prog-mode . smartparens-mode)
     :custom
     (sp-escappe-quotes-after-insert nil)
     :config
-    (require 'samrtparents-config))
+    (require 'smartparens-config))
 
   (show-paren-mode t)
 #+END_SRC
