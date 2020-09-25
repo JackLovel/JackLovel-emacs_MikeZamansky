@@ -514,7 +514,9 @@
 ; treemacs-projectile 
 #+END_SRC
 
-* dired 
+* dired+ 
 #+BEGIN_SRC emacs-lisp
- 
+  ;; Dired+ missing from MELPA
+  ;; https://emacs.stackexchange.com/questions/38553/dired-missing-from-melpa
+  (load "dired+.el")
 #+END_SRC
