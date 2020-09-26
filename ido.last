@@ -18,6 +18,8 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/home/gog/gitPro/use_ubuntu/" (24430 63062 206836 838000) "chapter2.tex" "chapter2.aux" "main.pdf" "chapter5.tex" "chapter1.aux" ".gitignore" ".#main.pdf" "序.tex" "chapter6.aux" "main.aux" "chapter6.tex" "../" "chapter3.aux" "./" "chapter1.tex" "img/" "main.bbl" ".git/" "chapter5.aux" "main.tex" "install_font_for_linux.py" "main.toc" "chapter4.tex" "序.aux" "readme.md" "run.py" "use_texstudio_build.md" "Re.bib" "font/" "data/" "main.out" "chapter3.tex" "chapter4.aux" "main.blg" "main.log")
+
  ("/home/gog/.emacs.d/" (24430 37917 599894 474000) "recentf~" "elpa/" "projectile.cache" "ac-comphist.dat" "ido.last~" "transient/" "sample/" ".gitignore" "snippets/" "../" "./" "otherElFile/" ".git/" "recentf" "init.el" "projectile-bookmarks.eld" "README.md" "myinit.org" "ido.last" ".cache/" "auto-save-list/" "myinit.el")
 
  ("/home/gog/.emacs.d/sample/" (24430 36235 343910 725000) "main.cpp" "../" "./" "sum.cpp" "kk.png" "2.png~" "emmet_html_demo.html" "emmet_html_demo.html~" "main.cpp~" "test1.png")
