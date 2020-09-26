@@ -129,11 +129,11 @@
 #+END_SRC 
 * python 
 #+BEGIN_SRC emacs-lisp 
-  (use-package jedi 
-    :ensure t
-    :init 
-    (add-hook 'python-mode-hook 'jedi:setup)
-    (add-hook 'python-mode-hook 'jedi:ac-setup)) 
+ ; (use-package jedi 
+ ;   :ensure t
+ ;   :init 
+ ;   (add-hook 'python-mode-hook 'jedi:setup)
+ ;   (add-hook 'python-mode-hook 'jedi:ac-setup)) 
 
 
   (use-package elpy
@@ -179,11 +179,11 @@
 #+END_SRC 
 * python 
 #+BEGIN_SRC emacs-lisp 
-  (use-package jedi 
-    :ensure t
-    :init 
-    (add-hook 'python-mode-hook 'jedi:setup)
-    (add-hook 'python-mode-hook 'jedi:ac-setup)) 
+;  (use-package jedi 
+;    :ensure t
+;    :init 
+;    (add-hook 'python-mode-hook 'jedi:setup)
+;    (add-hook 'python-mode-hook 'jedi:ac-setup)) 
 
 
   (use-package elpy
