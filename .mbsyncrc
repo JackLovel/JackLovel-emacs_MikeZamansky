@@ -1,0 +1,34 @@
+# mbsyncrc based on
+# http://www.ict4g.net/adolfo/notes/2014/12/27/EmacsIMAP.html
+
+# ACCOUNT INFORMATION
+IMAPAccount QQmail
+Host imap.exmail.qq.com
+Port 993
+User i@lijigang.com
+PassCmd "/usr/local/bin/pass email/i@lijigang.com"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+
+# REMOTE STORAGE (USE THE IMAP ACCOUNT SPECIFIED ABOVE)
+IMAPStore QQmail-remote
+Account QQmail
+
+# LOCAL STORAGE (CREATE DIRECTORIES with mkdir -p ~/Maildir/QQmail)
+MaildirStore QQmail-local
+Path ~/Maildir/QQmail/
+Inbox ~/Maildir/QQmail/INBOX
+Trash trash
+
+Channel QQmail-folders
+Master :QQmail-remote:
+Slave :QQmail-local:
+Patterns "INBOX" "Drafts" "Arch*" "Sent*" "Trash" "Junk" "Deleted*"
+Create Both
+Expunge Both
+SyncState *
+
+Group QQmail
+Channel QQmail-folders
