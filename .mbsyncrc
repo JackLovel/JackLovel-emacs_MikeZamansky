@@ -5,8 +5,8 @@
 IMAPAccount QQmail
 Host imap.exmail.qq.com
 Port 993
-User i@lijigang.com
-PassCmd "/usr/local/bin/pass email/i@lijigang.com"
+User 2101721230@qq.com
+PassCmd "/usr/local/bin/pass email/2101721230@qq.com"
 AuthMechs LOGIN
 SSLType IMAPS
 SSLVersions TLSv1.2
