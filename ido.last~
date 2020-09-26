@@ -18,7 +18,7 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/gog/.emacs.d/" (24430 37156 223901 829000) "recentf~" "elpa/" "projectile.cache" "ac-comphist.dat" "ido.last~" "transient/" "sample/" ".gitignore" "snippets/" "../" "./" "otherElFile/" ".git/" "recentf" "init.el" "projectile-bookmarks.eld" "README.md" "myinit.org" "ido.last" ".cache/" "auto-save-list/" "myinit.el")
+ ("/home/gog/.emacs.d/" (24430 37917 599894 474000) "recentf~" "elpa/" "projectile.cache" "ac-comphist.dat" "ido.last~" "transient/" "sample/" ".gitignore" "snippets/" "../" "./" "otherElFile/" ".git/" "recentf" "init.el" "projectile-bookmarks.eld" "README.md" "myinit.org" "ido.last" ".cache/" "auto-save-list/" "myinit.el")
 
  ("/home/gog/.emacs.d/sample/" (24430 36235 343910 725000) "main.cpp" "../" "./" "sum.cpp" "kk.png" "2.png~" "emmet_html_demo.html" "emmet_html_demo.html~" "main.cpp~" "test1.png")
 
