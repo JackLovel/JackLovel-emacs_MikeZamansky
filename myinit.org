@@ -1,8 +1,9 @@
-#+STARTIP: overview 
+#+STARTIP: overview
 
 * keyboard 
 #+BEGIN_SRC emacs-lisp 
 ; C-c ' 修改emacs-lisp 区域内的代码
+; C-x C-q edit file/directory name on dired mode  
 #+END_SRC
 * interface tweaks 
 #+BEGIN_SRC emacs-lisp 
@@ -535,5 +536,11 @@
     :ensure t
     :config
     (pcre-mode))
+
+
+  (use-package wgrep
+    :ensure t)
+
+  (setq counsel-fzf-cmd "/usr/bin/fzf -f %s")
 #+END_SRC
 
