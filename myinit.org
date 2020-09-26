@@ -516,8 +516,24 @@
 
 * dired+ 
 #+BEGIN_SRC emacs-lisp
+;; dired mode 
+;; f to vistit v to view 
+;; o and C-o 
+;; + mkdir directory 
+;; m to mark 
+;; c Copy, R rename/move D delete 
+
   ;; Dired+ missing from MELPA
   ;; https://emacs.stackexchange.com/questions/38553/dired-missing-from-melpa
   (load "~/.emacs.d/otherElFile/dired+.el")
   (require 'dired+)
 #+END_SRC
+
+* pcre2el 
+#+BEGIN_SRC emacs-lisp
+  (use-package pcre2el
+    :ensure t
+    :config
+    (pcre-mode))
+#+END_SRC
+
