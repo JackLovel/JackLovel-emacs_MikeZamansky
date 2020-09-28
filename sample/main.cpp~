@@ -1,6 +1,0 @@
-#include <iostream>
-#include "sum.cpp"
-
-int main() {
-  return sum(1, 3); 
-}
