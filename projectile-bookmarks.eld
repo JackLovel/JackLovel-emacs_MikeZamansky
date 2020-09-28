@@ -1,1 +1,1 @@
-("~/.emacs.d/" "~/gitPro/use_ubuntu/")
+("~/.emacs.d/" "~/桌面/MagitTest/" "~/gitPro/use_ubuntu/")

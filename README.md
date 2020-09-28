@@ -4,7 +4,7 @@
 
 # deb package
 ```
-// counsel-ag depend
+// ag search 
 $ sudo apt install -y silversearcher-ag
 
 // ggtags depend or use speedbar  
