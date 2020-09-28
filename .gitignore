@@ -1,3 +1,6 @@
 myinit.el
 ac-comphist.dat
 elpa/
+recentf*
+projectile*
+.cache*

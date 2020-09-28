@@ -18,9 +18,9 @@
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/gog/" (24431 56582 246581 461000) ".thunderbird/" ".gnupg/" ".bash_logout" ".ssh/" ".profile" ".sudo_as_admin_successful" ".bash_history" "桌面/" "图片/" "gitPro/" "../" "模板/" ".bashrc~" "./" ".profile~" "文档/" ".bashrc" "视频/" ".emacs.d/" ".dbus/" ".config/" ".local/" "音乐/" ".presage/" "公共的/" ".cache/" ".xinputrc" ".gitconfig" "snap/" ".python_history" ".mbsyncrc" "下载/" ".sogouinput/" ".mozilla/")
+ ("/home/gog/.emacs.d/" (24433 27860 424010 417000) "recentf~" "elpa/" "#myinit.org#" "projectile.cache" "ac-comphist.dat" "ido.last~" "transient/" "sample/" ".gitignore" "snippets/" "../" "./" "otherElFile/" ".git/" "recentf" "init.el" "projectile-bookmarks.eld" "README.md" "image-dired/" "myinit.org" "ido.last" ".cache/" "auto-save-list/" "myinit.el")
 
- ("/home/gog/.emacs.d/" (24433 11003 539996 646000) "recentf~" "elpa/" "projectile.cache" "ac-comphist.dat" "ido.last~" "transient/" "sample/" ".gitignore" "snippets/" "../" "./" "otherElFile/" ".git/" "recentf" "init.el" "projectile-bookmarks.eld" "README.md" "myinit.org" "ido.last" ".cache/" "auto-save-list/" "myinit.el")
+ ("/home/gog/" (24431 56582 246581 461000) ".thunderbird/" ".gnupg/" ".bash_logout" ".ssh/" ".profile" ".sudo_as_admin_successful" ".bash_history" "桌面/" "图片/" "gitPro/" "../" "模板/" ".bashrc~" "./" ".profile~" "文档/" ".bashrc" "视频/" ".emacs.d/" ".dbus/" ".config/" ".local/" "音乐/" ".presage/" "公共的/" ".cache/" ".xinputrc" ".gitconfig" "snap/" ".python_history" ".mbsyncrc" "下载/" ".sogouinput/" ".mozilla/")
 
  ("/home/gog/桌面/" (24431 59946 282484 657000) "../" "./" "2.png" "hello.py" "hello.py~" "test1.png")
 
