@@ -246,30 +246,42 @@
 ;   (setq web-mode-enable-auto-closing t))
 #+END_SRC 
 * org mode 
-#+BEGIN_SRC emacs-lisp 
-    (use-package org-bullets
-      :ensure t
-      :config
-      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+#+BEGIN_SRC emacs-lisp
+  (setenv "BROWSER" "firefox")
 
-    (custom-set-variables
-     '(org-directory "~/Dropbox/orgfiles")
-     '(org-default-notes-file (concat org-directory "/notes.org"))
-     '(org-export-html-postamble nil)
-     '(org-hide-leading-stars t)
-     '(org-startup-folded (quote overview))
-     '(org-startup-indented t))
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-    ;(setq org-file-apps
-    ;      (append '(
-    ;                ("\\.pdf'\\" . evince %s)
-                                            ;                ("\\.x?html?\\'" . "/usr/bin/firefox %s")
-                                            ;               ) org-file-apps ))
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
+  (custom-set-variables
+   '(org-directory "~/Dropbox/orgfiles")
+   '(org-default-notes-file (concat org-directory "/notes.org"))
+   '(org-export-html-postamble nil)
+   '(org-hide-leading-stars t)
+   '(org-startup-folded (quote overview))
+   '(org-startup-indented t)
+   '(org-confirm-babel-evaluate nil)
+   '(org-src-fontify-natively t))
 
-;编辑 org 文件代码段里的代码
-(global-set-key (kbd "C-e") 'org-edit-special)
+  (setq org-file-apps
+        (append '(("\\.pdf\\'" . "evince %s")
+                  ("\\.x?html?\\'" . "usr/bin/firefox %s")
+                  ) org-file-apps ))
+
+  (global-set-key "\C-ca" 'org-agenda)
+  (setq org-agenda-start-on-weekday nil)
+  (setq org-agenda-custom-commands
+        '(("c" "Simple agenda view"
+           ((agenda "")
+            (alltodo "")))))
+
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+
+
+  ;; 编辑 org 文件代码段里的代码
+  (global-set-key (kbd "C-e") 'org-edit-special)
 #+END_SRC
 * shell 
 #+BEGIN_SRC emacs-lisp 
@@ -600,10 +612,19 @@
   (define-key z-map (kbd "e") 'aya-expand)
 #+END_SRC
 
-* ag
+* silversearcher
 #+BEGIN_SRC emacs-lisp
-    (use-package ag
-      :ensure t
-      :init(setq ag-highlight-search t)
-      :config (require 'ag))
+  (use-package ag
+    :ensure t)
+#+END_SRC
+
+* wgrep 
+#+BEGIN_SRC emacs-lisp
+  (use-package wgrep
+    :ensure t)
+
+  (use-package wgrep-ag
+    :ensure t)
+
+  (require 'wgrep-ag)
 #+END_SRC

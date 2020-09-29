@@ -1,0 +1,68 @@
+q((("compile" .
+   [1 0 0 0 0 0 0])
+  ("define-key" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("z-map" .
+   [1 0 1 0 2])
+  ("kbd" .
+   [2 0 2])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("define-prefix-command" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("global-company-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("company-minimum-prefix-length" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("company-idle-delay" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("company" .
+   [1 0 0 0 0 0 0])
+  ("use-package" .
+   [0 0 0 0 0 0 0 0 0 0 5])
+  ("Dired+" .
+   [0 0 0 0 0 1])
+  (":ensure" .
+   [1 0 0 0 0 1 1])
+  ("require" .
+   [0 0 0 0 0 0 2])
+  ("dired+" .
+   [0 0 0 1 0 0])
+  ("setq" .
+   [5 0 0 0])
+  ("counsel-fzf" .
+   [0 0 0 0 0 0 0 0 0 1 0])
+  ("counsel-fzf-cmd" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  (":hook" .
+   [1 0 0 0 0])
+  ("org-pdftools" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  (":after" .
+   [1 0 0 0 0 0])
+  ("org-noter-pdftools" .
+   [0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0])
+  (":config" .
+   [3 0 0 0 0 0 0])
+  ("with-eval-after-load" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("pdf-annot-minor-mode" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("add-hook" .
+   [0 0 0 0 0 0 1 0])
+  ("vue" .
+   [1 0 0])
+  ("ac-source-words-in-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ac-source-abbrev" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("defun" .
+   [2 0 0 0 0])
+  ("random" .
+   [0 0 0 1 0 0])
+  ("ag" .
+   [1 0])
+  (":init" .
+   [1 0 0 0 0])
+  ("ag-hi" .
+   [0 0 0 0 1])))
