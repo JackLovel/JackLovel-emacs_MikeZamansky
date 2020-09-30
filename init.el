@@ -16,14 +16,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-confirm-babel-evaluate nil)
  '(org-default-notes-file (concat org-directory "/notes.org"))
  '(org-directory "~/Dropbox/orgfiles")
  '(org-export-html-postamble nil)
  '(org-hide-leading-stars t)
+ '(org-src-fontify-natively t)
  '(org-startup-folded 'overview)
  '(org-startup-indented t)
  '(package-selected-packages
-   '(wgrep-ag ag auto-yasnippet org-ac org-pdfview pdf-tools git-timemachine git-gutter wgrep pcre2el dired+ treemacs-magit treemacs-icons-dired treemacs-evil treemacs-persp treemacs-projectile emmet-mode smartparens samrtparents dumb-jump counsel-projectile projectile ggtags better-shell virtualenvwrapper web-mode miniedit iedit ledit expand-region hungry-delete beacon undo-tree elpy jedi flycheck ox-reveal elfeed-org zenburn-theme color-theme auto-complete counsel swiper ace-window tabbar org-bullets which-key try use-package)))
+   '(all-the-icons-dired all-the-icons-ivy all-the-icons dired-subtree dired-narrow dictionary irony-eldoc company-irony wgrep-ag ag auto-yasnippet org-ac org-pdfview pdf-tools git-timemachine git-gutter wgrep pcre2el dired+ treemacs-magit treemacs-icons-dired treemacs-evil treemacs-persp treemacs-projectile emmet-mode smartparens samrtparents dumb-jump counsel-projectile projectile ggtags better-shell virtualenvwrapper web-mode miniedit iedit ledit expand-region hungry-delete beacon undo-tree elpy jedi flycheck ox-reveal elfeed-org zenburn-theme color-theme auto-complete counsel swiper ace-window tabbar org-bullets which-key try use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
