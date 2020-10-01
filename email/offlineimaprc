@@ -14,7 +14,7 @@ localfolders = ~/Maildir
 [Repository Remote]
 type = Gmail
 remoteuser = areina0@gmail.com
-remotepasseval = get_password_emacs("imap.gmail.com", "areina0@gmail.com", "993")
+remotepasseval = get_password_emacs("imap.gmail.com", "谷歌邮箱地址", "993")
 realdelete = no
 
 folderfilter = lambda foldername: foldername not in ['[Gmail]/Spam', '[Gmail]/All Mail', '[Gmail]/Starred', '[Gmail]/Important']
