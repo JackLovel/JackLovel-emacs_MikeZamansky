@@ -13,6 +13,9 @@ $ sudo apt install -y global
 // lsp python config 
 $ pip3 install 'python-language-server[all]'
 $ pip3 install ipython
+
+// markdown 
+$ sudo apt install grip 
 ```
 
 # install 

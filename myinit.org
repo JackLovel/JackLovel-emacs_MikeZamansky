@@ -732,4 +732,9 @@
   (setq lsp-clangd-executable "clangd-6.0")
   (setq lsp-clients-clangd-executable "clangd-6.0")
 #+END_SRC
-
+* Markdown 
+#+BEGIN_SRC emacs-lisp
+    (use-package grip-mode
+      :ensure t
+      :hook ((markdown-mode org-mode) . grip-mode)) 
+#+END_SRC
