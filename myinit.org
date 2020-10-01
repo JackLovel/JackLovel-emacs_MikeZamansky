@@ -112,7 +112,7 @@
   :config (load-theme 'zenburn t)
   )
 
-(load-theme 'leuven t)
+(load-theme 'adwaita)
 #+END_SRC
 
 * reveal.js 
@@ -620,11 +620,6 @@
     :ensure t
     :config
     (push 'company-lsp company-backends))
-
-  (use-package irony-eldoc
-    :ensure t
-    :config
-    (add-hook 'irony-mode-hook #'irony-eldoc))
 #+END_SRC
 
 * auto yasnippet
@@ -697,4 +692,15 @@
   )
 
   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+#+END_SRC
+
+* lsp  
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode
+    :ensure t
+    :commands lsp
+    :custom
+    (lsp-auto-guess-root nil)
+    :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
+    :hook ((python-mode c-mode c++-mode) . lsp))
 #+END_SRC
