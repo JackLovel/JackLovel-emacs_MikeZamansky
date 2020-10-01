@@ -608,6 +608,19 @@
 * latex 
 * company 
 #+BEGIN_SRC emacs-lisp
+  (use-package company
+    :ensure t
+    :config
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 3)
+    (global-company-mode t)
+    )
+
+  (use-package company-lsp
+    :ensure t
+    :config
+    (push 'company-lsp company-backends))
+
   (use-package irony-eldoc
     :ensure t
     :config
