@@ -3,8 +3,8 @@
 using std::endl;
 using std::cout;
 
-int main(int argc, char **argv){
+int main(int argc, char *argv[]){
 
-  cout << "你好" << endl; 
+  cout << "hello" << endl; 
   return 0;
 }

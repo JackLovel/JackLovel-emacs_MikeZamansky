@@ -726,3 +726,10 @@
     (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
       (setq mode-line-format nil)))
 #+END_SRC
+
+* C++
+#+BEGIN_SRC emacs-lisp
+  (setq lsp-clangd-executable "clangd-6.0")
+  (setq lsp-clients-clangd-executable "clangd-6.0")
+#+END_SRC
+
