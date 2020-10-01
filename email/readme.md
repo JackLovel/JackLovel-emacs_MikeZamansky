@@ -1,3 +1,6 @@
+
+### emacs config
+```emacs lisp 
 (require 'mu4e)
 
 ;; default
@@ -10,8 +13,6 @@
 ;; don't save message to Sent Messages, GMail/IMAP will take care of this
 (setq mu4e-sent-messages-behavior 'delete)
 
-### emacs config
-```emacs lisp 
 ;; setup some handy shortcuts
 (setq mu4e-maildir-shortcuts
       '(("/INBOX"             . ?i)
