@@ -1,5 +1,8 @@
 #+STARTIP: overview
-
+* customize welcome screen 
+#+BEGIN_SRC emacs-lisp
+  (setq initial-scratch-message ";;JackLovel's emacs config")
+#+END_SRC
 * keyboard 
 #+BEGIN_SRC emacs-lisp 
 ; C-c ' 修改emacs-lisp 区域内的代码
@@ -736,5 +739,5 @@
 #+BEGIN_SRC emacs-lisp
     (use-package grip-mode
       :ensure t
-      :hook ((markdown-mode org-mode) . grip-mode)) 
+      :hook ((markdown-mode) . grip-mode)) 
 #+END_SRC

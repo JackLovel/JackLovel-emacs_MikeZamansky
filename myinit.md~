@@ -1,0 +1,883 @@
+
+# Table of Contents
+
+1.  [customize welcome screen](#orgbdc7195)
+2.  [keyboard](#org6e6d342)
+3.  [interface tweaks](#orgd838a54)
+4.  [try](#org89bdce3)
+5.  [which key](#orgb99824b)
+6.  [the rest](#orgc5fb18e)
+7.  [theme](#org01d2b3e)
+8.  [reveal.js](#orgd1b2102)
+9.  [yasnippet](#org8175533)
+10. [undo tree](#org9f56d98)
+11. [reveal.js](#org7e51667)
+12. [flycheck](#orgbbc8d3f)
+13. [python](#orgfb14a8c)
+14. [misc packages](#org82ecb1d)
+15. [iedit and narrow / widen dwim](#org8b0b425)
+16. [load other files](#orgafa030c)
+17. [web mode](#orgced9e30)
+18. [org mode](#org4f5fbc1)
+19. [shell](#orgde3af8f)
+20. [cpp](#org5efbaa0)
+21. [projectile](#orgcc8d49a)
+22. [Dumb jump](#org456827d)
+23. [smartparents](#org29565a8)
+24. [ibuffer](#orgf097733)
+25. [emmet mode](#org01b2fad)
+26. [treemacs](#org6b546e6)
+27. [dired+](#org5e65ea1)
+28. [pcre2el](#orge0e6ca5)
+29. [git](#orgfeeffa7)
+30. [pdf tool](#org7409422)
+31. [latex](#org072e1f0)
+32. [company](#orgda98566)
+33. [auto yasnippet](#org511cf24)
+34. [personal keymap](#orgfea7add)
+35. [silversearcher](#org50a00c1)
+36. [wgrep](#org5e792a8)
+37. [evil](#orgf155598)
+38. [word stuff](#orgcbcd532)
+39. [icon](#org39eb7e4)
+40. [lsp](#org802b379)
+41. [C++](#org228aacb)
+42. [Markdown](#orge434f26)
+
+
+
+<a id="orgbdc7195"></a>
+
+# customize welcome screen
+
+    (setq initial-scratch-message "this is test")
+
+
+<a id="org6e6d342"></a>
+
+# keyboard
+
+    ; C-c ' 修改emacs-lisp 区域内的代码
+    ; C-x C-q edit file/directory name on dired mode  
+    
+    ; org-table 
+    ; tab 
+    ; M-方向鍵
+
+
+<a id="orgd838a54"></a>
+
+# interface tweaks
+
+    (setq inhibit-startup-message t)
+    (tool-bar-mode -1)
+    (fset 'yes-or-no-p 'y-or-n-p)
+    (global-set-key (kbd "<f5>") 'revert-buffer)
+    ; 高亮所在行
+    (global-hl-line-mode t)
+    
+    ; 
+    (setq save-interprogram-paste-before-kill t)
+    (global-auto-revert-mode 1)
+    (setq auto-revert-verbose nil)
+    (global-set-key (kbd "<f5>") 'revert-buffer)
+
+
+<a id="org89bdce3"></a>
+
+# try
+
+    (use-package try
+      :ensure t)
+
+
+<a id="orgb99824b"></a>
+
+# which key
+
+Brings up some help 
+
+    (use-package which-key
+      :ensure t
+      :config 
+      (which-key-mode))
+
+
+<a id="orgc5fb18e"></a>
+
+# the rest
+
+    ;; buffer switch: C-x b 
+    (setq indo-enable-flex-matching t)
+    (setq ido-everywhere t)
+    (ido-mode 1)
+    ;; buffer 列表
+    (defalias 'list-buffers 'ibuffer)
+    
+    
+    ;; 窗口跳转
+    ;; M-o 1
+    (use-package ace-window
+      :bind ("M-o" . ace-window)
+      :ensure t
+      :init
+      (progn
+       ;; (global-set-key [remap other-window] 'ace-window)
+        (custom-set-faces
+         '(aw-leading-char-face
+           ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+        ))
+    
+    ;; it looks like counsel is a requirement for swiper
+    (use-package counsel
+      :ensure t)
+    
+    (use-package ivy 
+      :ensure t
+      :diminish (ivy-mode)
+      :bind (("C-x b" . ivy-switch-buffer))
+      :config
+      (ivy-mode 1)
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-display-style 'fancy))
+    
+    ;; 搜索: swiper
+    (use-package swiper
+      :ensure try
+      :bind (("C-s" . swiper)
+    	 ("C-r" . swiper)
+    	 ("C-c C-r" . ivy-resume)
+    	 ("M-x" . counsel-M-x)
+    	 ("C-x C-f" . counsel-find-file))
+      :config
+      (progn
+        (ivy-mode 1)
+        (setq ivy-use-virtual-buffers t)
+        (setq ivy-display-style 'fancy)
+        (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+        ))
+    
+    (use-package avy
+      :ensure t
+      :bind ("M-s" . avy-goto-char))
+    
+    (use-package auto-complete
+      :ensure t
+      :init
+      (progn
+        (ac-config-default)
+        (global-auto-complete-mode t)
+        ))
+
+
+<a id="org01d2b3e"></a>
+
+# theme
+
+    (use-package zenburn-theme
+      :ensure t
+      :config (load-theme 'zenburn t)
+      )
+    
+    ;;(load-theme 'adwaita)
+
+
+<a id="orgd1b2102"></a>
+
+# reveal.js
+
+    (use-package ox-reveal
+    :ensure ox-reveal)
+    
+    (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+    (setq org-reveal-mathjax t)
+
+
+<a id="org8175533"></a>
+
+# yasnippet
+
+    (use-package yasnippet
+    :ensure t
+    :init 
+    (progn
+    (yas-global-mode 1))) 
+
+
+<a id="org9f56d98"></a>
+
+# undo tree
+
+     (use-package undo-tree
+    :ensure t
+    :init
+    (global-undo-tree-mode))
+
+
+<a id="org7e51667"></a>
+
+# reveal.js
+
+    (use-package ox-reveal
+    :ensure ox-reveal)
+    
+    (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+    (setq org-reveal-mathjax t)
+
+
+<a id="orgbbc8d3f"></a>
+
+# flycheck
+
+    (use-package flycheck
+    :ensure t
+    :init 
+    (global-flycheck-mode t)) 
+
+
+<a id="orgfb14a8c"></a>
+
+# python
+
+    (use-package virtualenvwrapper
+      :ensure t
+      :config
+      (venv-initialize-interactive-shells)
+      (venv-initialize-eshell))
+    
+    
+    (setq lsp-python-executable-cmd "python3")
+    
+    (setq python-shell-interpreter "ipython3"
+          python-shell-interpreter-args "-i --simple-prompt")
+
+
+<a id="org82ecb1d"></a>
+
+# misc packages
+
+    (use-package beacon
+    :ensure t 
+    :config 
+    (beacon-mode 1)
+    ;(setq beacon-color "#666600")
+    )
+    
+    (use-package hungry-delete
+    :ensure t
+    :config 
+    (global-hungry-delete-mode))
+    
+    ; 选择一个范围里的内容
+    (use-package expand-region
+    :ensure t 
+    :config 
+    (global-set-key (kbd "C-=") 'er/expand-region))
+
+
+<a id="org8b0b425"></a>
+
+# iedit and narrow / widen dwim
+
+    (use-package iedit
+    :ensure t)
+    
+    ; 选中一个范围的内容，并拿出去添加修改
+    ; C-x n 
+    (defun narrow-or-widen-dwim (p)
+      "Widen if buffer is narrowed, narrow-dwim otherwise.
+      Dwim means: region, org-src-block, org-subtree, or defun,
+      whichever applies first. Narrowing to org-src-block actually
+      calls `org-edit-src-code'.
+    
+      With prefix P, don't widen, just narrow even if buffer is
+      already narrowed."
+      (interactive "P")
+      (declare (interactive-only))
+      (cond ((and (not p) (buffer-narrowed-p))(widen))
+    	((region-active-p)
+    	 (narrow-to-region (region-beginning) (region-end)))
+    	((derived-mode-p 'org-mode)
+    	 (cond ((ignore-errors (org-edit-src-code))
+    	 (delete-other-windows))
+    	 ((org-at-block-p)
+    	 (org-narrow-to-block))
+    	 (t (org-narrow-to-subtree))))
+    	 (t (narrow-to-defun))))
+    
+    	 (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
+
+
+<a id="orgafa030c"></a>
+
+# load other files
+
+    (defun load-if-exists (f)
+      "检测文件是否存在"
+      (if (file-readable-p f)
+          (load-file f)))
+    
+    (load-if-exists "something.el")
+
+
+<a id="orgced9e30"></a>
+
+# web mode
+
+    ;  (use-package web-mode
+    ;    :ensure t
+    ;    :config
+    ;    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    ;    (add-to-list 'auto-mode-alist '("\\.vue?\\'" . web-mode))
+    ;    (setq web-mode-engines-alist 
+    	 ; '(("django" . "\\.html\\'")))
+       ; (setq web-mode-ac-sources-alist
+    ;	  '(("css" . (ac-source-css-property))
+    ;	  ("html". (ac-source-words-in-buffer ac-source-abbrev))
+     ;         ("vue" . (ac-source-words-in-buffer ac-source-abbrev))))
+    ;   (setq web-mode-enable-auto-closing t))
+
+
+<a id="org4f5fbc1"></a>
+
+# org mode
+
+    (setenv "BROWSER" "firefox")
+    
+    (use-package org-bullets
+      :ensure t
+      :config
+      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    
+    (custom-set-variables
+     '(org-directory "~/Dropbox/orgfiles")
+     '(org-default-notes-file (concat org-directory "/notes.org"))
+     '(org-export-html-postamble nil)
+     '(org-hide-leading-stars t)
+     '(org-startup-folded (quote overview))
+     '(org-startup-indented t)
+     '(org-confirm-babel-evaluate nil)
+     '(org-src-fontify-natively t))
+    
+    (setq org-file-apps
+          (append '(("\\.pdf\\'" . "evince %s")
+    		("\\.x?html?\\'" . "usr/bin/firefox %s")
+    		) org-file-apps ))
+    
+    (global-set-key "\C-ca" 'org-agenda)
+    (setq org-agenda-start-on-weekday nil)
+    (setq org-agenda-custom-commands
+          '(("c" "Simple agenda view"
+    	 ((agenda "")
+    	  (alltodo "")))))
+    
+    (global-set-key (kbd "C-c c") 'org-capture)
+    
+    
+    
+    ;; 编辑 org 文件代码段里的代码
+    (global-set-key (kbd "C-e") 'org-edit-special)
+
+
+<a id="orgde3af8f"></a>
+
+# shell
+
+    (use-package better-shell
+      :ensure t
+      :bind
+      (("C-'" . better-shell-shell) ;open shell 
+       ("C-;" . better-shell-remote-open)))
+
+
+<a id="org5efbaa0"></a>
+
+# cpp
+
+    (use-package ggtags
+      :ensure t
+      :config
+      (add-hook 'c-mode-common-hook
+    	    (lambda ()
+    	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+    		(ggtags-mode 1))))
+      )
+
+
+<a id="orgcc8d49a"></a>
+
+# projectile
+
+       ; 非常不错的包
+      (use-package projectile
+        :ensure t
+        :config
+        (projectile-global-mode)
+        (setq projectile-completion-system 'ivy))
+    
+       ; 用于切换项目
+      (use-package counsel-projectile
+        :ensure t
+        :config
+        (counsel-projectile-mode))
+    
+    (global-set-key (kbd "C-c p") 'counsel-projectile-switch-project)
+
+
+<a id="org456827d"></a>
+
+# Dumb jump
+
+    ; 函数定义跳转
+      (use-package dumb-jump
+        :ensure t
+        :bind (("M-g o" . dumb-jump-go-other-window)
+    	   ("M-g j" . dumb-jump-go)
+    	   ("M-g x" . dumb-jump-go-prefer-external)
+    	   ("M-g z" . dumb-jump-go-prefer-external-other-window))
+        :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+        :init(dumb-jump-mode))
+
+
+<a id="org29565a8"></a>
+
+# smartparents
+
+    (use-package smartparens
+      :ensure t
+      :hook (prog-mode . smartparens-mode)
+      :custom
+      (sp-escappe-quotes-after-insert nil)
+      :config
+      (require 'smartparens-config))
+    
+    (show-paren-mode t)
+
+
+<a id="orgf097733"></a>
+
+# ibuffer
+
+    (global-set-key (kbd "C-x C-b") 'ibuffer)
+    (setq ibuffer-saved-filter-groups
+          (quote (("default"
+    	       ("dired" (mode . dired-mode))
+    	       ("org" (name . "^.*org$"))
+    
+    	       ("web" (or (mode . web-mode) (mode . js2-mode)))
+    	       ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
+    	       ("mu4e" (name . "\*mu4e\*"))
+    	       ("programming" (or
+    			       (mode . python-mode)
+    			       (mode . c++-mode)))
+    	       ("emacs" (or
+    			 (name . "^\\*scratch\\*$")
+    			 (name . "^\\*Messages\\*$")))
+    	       ))))
+    (add-hook 'ibuffer-mode-hook
+    	  (lambda ()
+    	    (ibuffer-auto-mode 1)
+    	    (ibuffer-switch-to-saved-filter-groups "default")))
+
+
+<a id="org01b2fad"></a>
+
+# emmet mode
+
+    ; emmet mode 用于快速创建 html 和 css 代码片段
+    (use-package emmet-mode
+      :ensure t
+      :config
+      (add-hook 'sgml-mode-hook 'emmet-mode)
+      (add-hook 'web-mode-hook 'emmet-mode)
+      (add-hook 'css-mode-hook 'emmet-mode))
+
+
+<a id="org6b546e6"></a>
+
+# treemacs
+
+      (use-package treemacs
+        :ensure t
+        :defer t
+        :init
+        (with-eval-after-load 'winum
+          (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+        :config
+        (progn
+          (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+    	    treemacs-deferred-git-apply-delay      0.5
+    	    treemacs-directory-name-transformer    #'identity
+    	    treemacs-display-in-side-window        t
+    	    treemacs-eldoc-display                 t
+    	    treemacs-file-event-delay              5000
+    	    treemacs-file-extension-regex          treemacs-last-period-regex-value
+    	    treemacs-file-follow-delay             0.2
+    	    treemacs-file-name-transformer         #'identity
+    	    treemacs-follow-after-init             t
+    	    treemacs-git-command-pipe              ""
+    	    treemacs-goto-tag-strategy             'refetch-index
+    	    treemacs-indentation                   2
+    	    treemacs-indentation-string            " "
+    	    treemacs-is-never-other-window         nil
+    	    treemacs-max-git-entries               5000
+    	    treemacs-missing-project-action        'ask
+    	    treemacs-move-forward-on-expand        nil
+    	    treemacs-no-png-images                 nil
+    	    treemacs-no-delete-other-windows       t
+    	    treemacs-project-follow-cleanup        nil
+    	    treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+    	    treemacs-position                      'left
+    	    treemacs-recenter-distance             0.1
+    	    treemacs-recenter-after-file-follow    nil
+    	    treemacs-recenter-after-tag-follow     nil
+    	    treemacs-recenter-after-project-jump   'always
+    	    treemacs-recenter-after-project-expand 'on-distance
+    	    treemacs-show-cursor                   nil
+    	    treemacs-show-hidden-files             t
+    	    treemacs-silent-filewatch              nil
+    	    treemacs-silent-refresh                nil
+    	    treemacs-sorting                       'alphabetic-asc
+    	    treemacs-space-between-root-nodes      t
+    	    treemacs-tag-follow-cleanup            t
+    	    treemacs-tag-follow-delay              1.5
+    	    treemacs-user-mode-line-format         nil
+    	    treemacs-user-header-line-format       nil
+    	    treemacs-width                         35
+    	    treemacs-workspace-switch-cleanup      nil)
+    
+          ;; The default width and height of the icons is 22 pixels. If you are
+          ;; using a Hi-DPI display, uncomment this to double the icon size.
+          ;;(treemacs-resize-icons 44)
+    
+          (treemacs-follow-mode t)
+          (treemacs-filewatch-mode t)
+          (treemacs-fringe-indicator-mode t)
+          (pcase (cons (not (null (executable-find "git")))
+    		   (not (null treemacs-python-executable)))
+    	(`(t . t)
+    	 (treemacs-git-mode 'deferred))
+    	(`(t . _)
+    	 (treemacs-git-mode 'simple))))
+        :bind
+        (:map global-map
+    	  ("M-0"       . treemacs-select-window)
+    	  ("C-x t 1"   . treemacs-delete-other-windows)
+    	  ("C-x t t"   . treemacs)
+    	  ("C-x t B"   . treemacs-bookmark)
+    	  ("C-x t C-t" . treemacs-find-file)
+    	  ("C-x t M-t" . treemacs-find-tag)))
+    
+      (use-package treemacs-evil
+        :after treemacs evil
+        :ensure t)
+    
+      (use-package treemacs-projectile
+        :after treemacs projectile
+        :ensure t)
+    
+      (use-package treemacs-icons-dired
+        :after treemacs dired
+        :ensure t
+        :config (treemacs-icons-dired-mode))
+    
+      (use-package treemacs-magit
+        :after treemacs magit
+        :ensure t)
+    
+      (use-package treemacs-persp ;;treemacs-persective if you use perspective.el vs. persp-mode
+        :after treemacs persp-mode ;;or perspective vs. persp-mode
+        :ensure t
+        :config (treemacs-set-scope-type 'Perspectives))
+    
+    ; 打开/关闭目录树
+    (global-set-key (kbd "<f8>") 'treemacs)
+    
+    ; treemacs-projectile 
+
+
+<a id="org5e65ea1"></a>
+
+# dired+
+
+      ;; dired mode 
+      ;; f to vistit v to view 
+      ;; o and C-o 
+      ;; + mkdir directory 
+      ;; m to mark 
+      ;; c Copy, R rename/move D delete 
+    
+        ;; Dired+ missing from MELPA
+        ;; https://emacs.stackexchange.com/questions/38553/dired-missing-from-melpa
+      ;;  (load "~/.emacs.d/otherElFile/dired+.el")
+      ;;  (require 'dired+)
+    
+    
+    (setq dired-dwim-target t)
+    
+    (use-package dired-narrow
+      :ensure t
+      :config
+      (bind-key "C-c C-n" #'dired-narrow)
+      (bind-key "C-c C-f" #'dired-narrow-fuzzy)
+      (bind-key "C-x C-N" #'dired-narrow-regexp)
+    )
+    
+    (use-package dired-subtree :ensure t
+      :after dired
+      :config
+      (bind-key "<tab>" #'dired-subtree-toggle dired-mode-map)
+      (bind-key "<backtab>" #'dired-subtree-cycle dired-mode-map))
+
+
+<a id="orge0e6ca5"></a>
+
+# pcre2el
+
+    (use-package pcre2el
+      :ensure t
+      :config
+      (pcre-mode))
+    
+    
+    (use-package wgrep
+      :ensure t)
+    
+    (setq counsel-fzf-cmd "/usr/bin/fzf -f %s")
+
+
+<a id="orgfeeffa7"></a>
+
+# git
+
+     (use-package magit
+        :ensure t
+        :init
+        (progn
+        (bind-key "C-x g" 'magit-status)
+        ))
+    
+    (setq magit-status-margin
+      '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+        (use-package git-gutter
+        :ensure t
+        :init
+        (global-git-gutter-mode +1))
+    
+        (global-set-key (kbd "M-g M-g") 'hydra-git-gutter/body)
+    
+    
+        (use-package git-timemachine
+        :ensure t
+        )
+      (defhydra hydra-git-gutter (:body-pre (git-gutter-mode 1)
+    			      :hint nil)
+        "
+      Git gutter:
+        _j_: next hunk        _s_tage hunk     _q_uit
+        _k_: previous hunk    _r_evert hunk    _Q_uit and deactivate git-gutter
+        ^ ^                   _p_opup hunk
+        _h_: first hunk
+        _l_: last hunk        set start _R_evision
+      "
+        ("j" git-gutter:next-hunk)
+        ("k" git-gutter:previous-hunk)
+        ("h" (progn (goto-char (point-min))
+    		(git-gutter:next-hunk 1)))
+        ("l" (progn (goto-char (point-min))
+    		(git-gutter:previous-hunk 1)))
+        ("s" git-gutter:stage-hunk)
+        ("r" git-gutter:revert-hunk)
+        ("p" git-gutter:popup-hunk)
+        ("R" git-gutter:set-start-revision)
+        ("q" nil :color blue)
+        ("Q" (progn (git-gutter-mode -1)
+    		;; git-gutter-fringe doesn't seem to
+    		;; clear the markup right away
+    		(sit-for 0.1)
+    		(git-gutter:clear))
+    	 :color blue))
+
+
+<a id="org7409422"></a>
+
+# pdf tool
+
+    (use-package pdf-tools
+      :ensure t
+      :config
+      (pdf-tools-install))
+    
+    (use-package org-pdftools
+      :hook (org-load . org-pdftools-setup-link))
+    
+    (use-package org-noter-pdftools
+      :after org-noter
+      :config
+      (with-eval-after-load 'pdf-annot
+        (add-hook 'pdf-annot-activate-handler-functions #'org-noter-pdftools-jump-to-note)))
+
+
+<a id="org072e1f0"></a>
+
+# latex
+
+
+<a id="orgda98566"></a>
+
+# company
+
+    (use-package company
+      :ensure t
+      :config
+      (setq company-idle-delay 0)
+      (setq company-minimum-prefix-length 3)
+      (global-company-mode t)
+      )
+    
+    (use-package company-lsp
+      :ensure t
+      :config
+      (push 'company-lsp company-backends))
+
+
+<a id="org511cf24"></a>
+
+# auto yasnippet
+
+    (use-package auto-yasnippet
+      :ensure t)
+
+
+<a id="orgfea7add"></a>
+
+# personal keymap
+
+    ;; set up my own map 
+    (define-prefix-command 'z-map)
+    (global-set-key (kbd "C-z") 'z-map)
+    (define-key z-map (kbd "k") 'compile)
+    (define-key z-map (kbd "y") 'aya-create)
+    (define-key z-map (kbd "e") 'aya-expand)
+
+
+<a id="org50a00c1"></a>
+
+# silversearcher
+
+    (use-package ag
+      :ensure t)
+
+
+<a id="org5e792a8"></a>
+
+# wgrep
+
+    (use-package wgrep
+      :ensure t)
+    
+    (use-package wgrep-ag
+      :ensure t)
+    
+    (require 'wgrep-ag)
+
+
+<a id="orgf155598"></a>
+
+# evil
+
+    (use-package evil
+      :ensure t
+      :config (evil-mode 1))
+
+
+<a id="orgcbcd532"></a>
+
+# word stuff
+
+    (use-package dictionary
+      :ensure t)
+
+
+<a id="org39eb7e4"></a>
+
+# icon
+
+    (use-package all-the-icons 
+      :ensure t
+      :defer 0.5)
+    
+    (use-package all-the-icons-ivy
+      :ensure t
+      :after (all-the-icons ivy)
+      :custom (all-the-icons-ivy-buffer-commands '(ivy-switch-buffer-other-window ivy-switch-buffer))
+      :config
+      (add-to-list 'all-the-icons-ivy-file-commands 'counsel-dired-jump)
+      (add-to-list 'all-the-icons-ivy-file-commands 'counsel-find-library)
+      (all-the-icons-ivy-setup))
+    
+    
+    (use-package all-the-icons-dired
+      :ensure t
+    )
+    
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+
+<a id="org802b379"></a>
+
+# lsp
+
+    (use-package lsp-mode
+      :ensure t
+      :commands lsp
+      :custom
+      (lsp-auto-guess-root nil)
+      :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
+      :hook ((python-mode c-mode c++-mode) . lsp))
+    
+    (use-package lsp-ui
+      :after lsp-mode
+      :diminish
+      :commands lsp-ui-mode
+      :custom-face
+      (lsp-ui-doc-background ((t (:background nil))))
+      (lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic)))))
+      :bind (:map lsp-ui-mode-map
+    	      ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+    	      ([remap xref-find-references] . lsp-ui-peek-find-references)
+    	      ("C-c u" . lsp-ui-imenu))
+      :custom
+      (lsp-ui-doc-enable t)
+      (lsp-ui-doc-header t)
+      (lsp-ui-doc-include-signature t)
+      (lsp-ui-doc-position 'top)
+      (lsp-ui-doc-border (face-foreground 'default))
+      (lsp-ui-sideline-enable nil)
+      (lsp-ui-sideline-ignore-duplicate t)
+      (lsp-ui-sideline-show-code-actions nil)
+      :config
+      ;; Use lsp-ui-doc-webkit only in GUI
+      (setq lsp-ui-doc-use-webkit t)
+      ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
+      ;; https://github.com/emacs-lsp/lsp-ui/issues/243
+      (defadvice lsp-ui-imenu (after hide-lsp-ui-imenu-mode-line activate)
+        (setq mode-line-format nil)))
+
+
+<a id="org228aacb"></a>
+
+# C++
+
+    (setq lsp-clangd-executable "clangd-6.0")
+    (setq lsp-clients-clangd-executable "clangd-6.0")
+
+
+<a id="orge434f26"></a>
+
+# Markdown
+
+    (use-package grip-mode
+      :ensure t
+      :hook ((markdown-mode org-mode) . grip-mode)) 
+
