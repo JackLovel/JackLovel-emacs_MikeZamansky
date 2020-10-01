@@ -1,0 +1,12 @@
+(setq user-mail-address "gcc_linux@foxmail.com"
+      user-full-name "2101721230@qq.com")
+
+(setq gnus-select-method
+      '(nnimap "qq"
+	       (nnimap-address "imap.qq.com")  ; it could also be imap.googlemail.com if that's your server.
+	       (nnimap-server-port "993")
+	       (nnimap-stream ssl)))
+
+(setq smtpmail-smtp-server "smtp.qq.com"
+      smtpmail-smtp-service 587
+      gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")

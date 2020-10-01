@@ -1,0 +1,2 @@
+machine imap.qq.com login gcc_linux@foxmail.com  password <授权码> port imaps
+machine smtp.qq.com login gcc_linux@foxmail.com  password <授权码>> port 587
