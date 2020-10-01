@@ -168,13 +168,10 @@
   ;    :config 
   ;    (elpy-enable))
 
-    (use-package virtualenvwrapper
-      :ensure t
-      :config
-      (venv-initialize-interactive-shells)
-      (venv-initialize-eshell))
+  ;;(setq lsp-python-executable-cmd "python3")
 
-  (setq lsp-python-executable-cmd "python3")
+  (setq python-shell-interpreter "ipython3"
+        python-shell-interpreter-args "-i --simple-prompt")
 #+END_SRC
 * misc packages 
 #+BEGIN_SRC emacs-lisp 

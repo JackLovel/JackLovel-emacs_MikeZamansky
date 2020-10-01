@@ -9,6 +9,10 @@ $ sudo apt install -y silversearcher-ag
 
 // ggtags depend or use speedbar  
 $ sudo apt install -y global
+
+// lsp python config 
+$ pip3 install 'python-language-server[all]'
+$ pip3 install ipython
 ```
 
 # install 
