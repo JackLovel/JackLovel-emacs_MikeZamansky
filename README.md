@@ -20,6 +20,7 @@ $ type -a python // check python path
 $ sudo ln -s /usr/bin/python3.8 /usr/bin/python 
 
 // markdown 
+// md 文件实时的预览
 $ sudo apt install grip 
 ```
 
