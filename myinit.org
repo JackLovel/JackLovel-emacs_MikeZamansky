@@ -776,9 +776,7 @@
     (use-package eshell-git-prompt
       :ensure t
       :config
-      (eshell-git-prompt-use-theme 'git-radar)
-      ;; 指定主题
-      (eshell-git-prompt-use-theme 'powerline) 
+      (eshell-git-prompt-use-theme 'powerline)
   )
 
     (setq scroll-step 1)
