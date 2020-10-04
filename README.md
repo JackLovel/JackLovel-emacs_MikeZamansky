@@ -13,6 +13,11 @@ $ sudo apt install -y global
 // lsp python config 
 $ pip3 install 'python-language-server[all]'
 $ pip3 install ipython
+$ sudo apt install -y python3 
+
+// deal with "bash python command not found"
+$ type -a python // check python path 
+$ sudo ln -s /usr/bin/python3.8 /usr/bin/python 
 
 // markdown 
 $ sudo apt install grip 
