@@ -760,3 +760,26 @@
       :ensure t
       :hook ((markdown-mode) . grip-mode)) 
 #+END_SRC
+
+* eshell 
+#+BEGIN_SRC emacs-lisp 
+    (use-package exec-path-from-shell
+      :ensure t
+      :config
+      (exec-path-from-shell-initialize))
+
+    (use-package fish-completion
+      :ensure t
+      :config
+      (global-fish-completion-mode))
+
+    (use-package eshell-git-prompt
+      :ensure t
+      :config
+      (eshell-git-prompt-use-theme 'git-radar)
+      ;; 指定主题
+      (eshell-git-prompt-use-theme 'powerline) 
+  )
+
+    (setq scroll-step 1)
+#+END_SRC
