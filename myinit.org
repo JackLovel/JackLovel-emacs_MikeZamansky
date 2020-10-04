@@ -535,53 +535,76 @@
 
 * git
 #+BEGIN_SRC emacs-lisp
- (use-package magit
-    :ensure t
-    :init
-    (progn
-    (bind-key "C-x g" 'magit-status)
-    ))
+  (use-package magit
+      :ensure t
+      :init
+      (progn
+        (setq magit-section-initial-visibility-alist
+              '((stashes . hide) (untracked . hide) (unpushed . hide)))
+      
+      
+        (bind-key "C-x g" 'magit-status)
+        ))
 
-(setq magit-status-margin
-  '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
-    (use-package git-gutter
-    :ensure t
-    :init
-    (global-git-gutter-mode +1))
+  (setq magit-status-margin
+        '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
 
-    (global-set-key (kbd "M-g M-g") 'hydra-git-gutter/body)
+  (use-package git-timemachine
+        :ensure t
+      )
+
+  (use-package git-gutter-fringe
+  :ensure t
+  :config
+  (global-git-gutter-mode))
 
 
-    (use-package git-timemachine
-    :ensure t
-    )
-  (defhydra hydra-git-gutter (:body-pre (git-gutter-mode 1)
-                              :hint nil)
-    "
-  Git gutter:
-    _j_: next hunk        _s_tage hunk     _q_uit
-    _k_: previous hunk    _r_evert hunk    _Q_uit and deactivate git-gutter
-    ^ ^                   _p_opup hunk
-    _h_: first hunk
-    _l_: last hunk        set start _R_evision
+
+
+  (use-package smerge-mode
+    :after hydra
+    :config
+    (defhydra unpackaged/smerge-hydra
+      (:color pink :hint nil :post (smerge-auto-leave))
+      "
+  ^Move^       ^Keep^               ^Diff^                 ^Other^
+  ^^-----------^^-------------------^^---------------------^^-------
+  _n_ext       _b_ase               _<_: upper/base        _C_ombine
+  _p_rev       _u_pper              _=_: upper/lower       _r_esolve
+  ^^           _l_ower              _>_: base/lower        _k_ill current
+  ^^           _a_ll                _R_efine
+  ^^           _RET_: current       _E_diff
   "
-    ("j" git-gutter:next-hunk)
-    ("k" git-gutter:previous-hunk)
-    ("h" (progn (goto-char (point-min))
-                (git-gutter:next-hunk 1)))
-    ("l" (progn (goto-char (point-min))
-                (git-gutter:previous-hunk 1)))
-    ("s" git-gutter:stage-hunk)
-    ("r" git-gutter:revert-hunk)
-    ("p" git-gutter:popup-hunk)
-    ("R" git-gutter:set-start-revision)
-    ("q" nil :color blue)
-    ("Q" (progn (git-gutter-mode -1)
-                ;; git-gutter-fringe doesn't seem to
-                ;; clear the markup right away
-                (sit-for 0.1)
-                (git-gutter:clear))
-         :color blue))
+      ("n" smerge-next)
+      ("p" smerge-prev)
+      ("b" smerge-keep-base)
+      ("u" smerge-keep-upper)
+      ("l" smerge-keep-lower)
+      ("a" smerge-keep-all)
+      ("RET" smerge-keep-current)
+      ("\C-m" smerge-keep-current)
+      ("<" smerge-diff-base-upper)
+      ("=" smerge-diff-upper-lower)
+      (">" smerge-diff-base-lower)
+      ("R" smerge-refine)
+      ("E" smerge-ediff)
+      ("C" smerge-combine-with-next)
+      ("r" smerge-resolve)
+      ("k" smerge-kill-current)
+      ("ZZ" (lambda ()
+              (interactive)
+              (save-buffer)
+              (bury-buffer))
+       "Save and bury buffer" :color blue)
+      ("q" nil "cancel" :color blue))
+    :hook (magit-diff-visit-file . (lambda ()
+                                     (when smerge-mode
+                                       (unpackaged/smerge-hydra/body)))))
+
+
+
+  (use-package forge
+    :ensure t)
 #+END_SRC
 
 * pdf tool 
