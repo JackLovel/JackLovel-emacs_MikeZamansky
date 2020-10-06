@@ -21,7 +21,10 @@ $ sudo ln -s /usr/bin/python3.8 /usr/bin/python
 
 // markdown 
 // md 文件实时的预览
-$ sudo apt install grip 
+$ sudo apt install -y grip 
+
+// ripgrep 
+$ sudo apt install -y ripgrep
 ```
 
 # emacs 包
