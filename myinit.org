@@ -815,6 +815,7 @@
 
 * rg 
 #+BEGIN_SRC emacs-lisp 
+;; 参考：https://stegosaurusdormant.com/emacs-ripgrep/
   (use-package rg 
     :ensure t
     :config
