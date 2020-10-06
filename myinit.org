@@ -812,3 +812,17 @@
      (openwith-mode 1)
   ) 
 #+END_SRC
+
+* rg 
+#+BEGIN_SRC emacs-lisp 
+  (use-package rg 
+    :ensure t
+    :config
+    (rg-enable-default-bindings)
+    (grep-apply-setting
+     'grep-find-command
+     '("rg -n -H --no-heading -e '' $(git rev-parse --show-toplevel || pwd)" . 27)))
+
+  (global-set-key (kbd "C-x C-g") 'grep-find)
+#+END_SRC
+
