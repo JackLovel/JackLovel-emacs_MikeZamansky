@@ -356,11 +356,18 @@
 #+END_SRC
 * buffer stuff 
 #+BEGIN_SRC emacs-lisp
-  (use-package bufler :ensure t)
-    (global-set-key (kbd "C-x C-b") 'bufler)
+  ;; (use-package bufler :ensure t)
+  ;; (global-set-key (kbd "C-x C-b") 'bufler)
+
+  ;; (defun mz/bufler-one-window (&optional force-refresh)
+  ;;   (interactive "P")
+  ;;   (bufler-list)
+  ;;   (delete-other-windows))
+
+  ;; (global-set-key (kbd "C-x C-b") 'mz/bufler-one-window)
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp :tangle no 
+#+BEGIN_SRC emacs-lisp 
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (setq ibuffer-saved-filter-groups
         (quote (("default"
