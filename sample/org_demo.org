@@ -10,3 +10,10 @@ _下划线_
 =verbatim text=
 
 [[http://www.baidu.com][百度]]
+
+* 表格 
+| Name   | age | occupation |
+|--------+-----+------------|
+| Amy    |  23 | teacher    |
+| Barney |  65 | worker     |
+| Tom   |  90 | worker     |
