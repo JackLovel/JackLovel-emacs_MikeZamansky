@@ -827,3 +827,15 @@
   (global-set-key (kbd "C-x C-g") 'grep-find)
 #+END_SRC
 
+* eglot - C++, python, java 
+#+BEGIN_SRC emacs-lisp
+  (use-package eglot
+    :ensure t)
+
+  (add-to-list 'eglot-server-programs
+               '((c++-mode c-mode) "clangd-10"))
+
+  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-hook 'c++-mode-hook 'eglot-ensure)
+  (add-hook 'python-mode-hook 'eglot-ensure)
+#+END_SRC

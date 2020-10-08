@@ -5,6 +5,10 @@ using std::cout;
 
 int main(int argc, char *argv[]){
 
-  cout << "hello" << endl; 
+  int able;
+
+  able = 10;
+
+  double baker = 10;
   return 0;
 }
