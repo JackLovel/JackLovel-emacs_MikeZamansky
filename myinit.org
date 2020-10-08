@@ -309,20 +309,23 @@
 * projectile
 
 #+BEGIN_SRC emacs-lisp 
-     ; 非常不错的包
-    (use-package projectile
-      :ensure t
-      :config
-      (projectile-global-mode)
-      (setq projectile-completion-system 'ivy))
+  (use-package projectile
+        :ensure t
+        :bind (:map projectile-mode-map
+                    ("s-p" . 'projectile-command-map)
+                    ("C-c p" . 'projectile-command-map)
+                    )
+        :config 
+        (setq projectile-completion-system 'ivy)
+        (projectile-mode +1))
 
-     ; 用于切换项目
-    (use-package counsel-projectile
-      :ensure t
-      :config
-      (counsel-projectile-mode))
+       ; 用于切换项目
+      (use-package counsel-projectile
+        :ensure t
+        :config
+        (counsel-projectile-mode))
 
-  (global-set-key (kbd "C-c p") 'counsel-projectile-switch-project)
+       (global-set-key (kbd "C-c p") 'counsel-projectile-switch-project)
 #+END_SRC
 
 * Dumb jump 
@@ -351,8 +354,13 @@
 
   (show-paren-mode t)
 #+END_SRC
-* ibuffer
+* buffer stuff 
 #+BEGIN_SRC emacs-lisp
+  (use-package bufler :ensure t)
+    (global-set-key (kbd "C-x C-b") 'bufler)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle no 
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (setq ibuffer-saved-filter-groups
         (quote (("default"
