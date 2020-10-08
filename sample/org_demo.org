@@ -1,3 +1,7 @@
+#+STARTUP: overview
+#+TITLE: org mode 例子
+#+CREATOR：JackLovel
+
 *加粗*  
 /斜体/
 
