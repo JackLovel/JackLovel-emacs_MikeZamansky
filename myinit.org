@@ -854,3 +854,11 @@
   (add-hook 'c++-mode-hook 'eglot-ensure)
   (add-hook 'python-mode-hook 'eglot-ensure)
 #+END_SRC
+
+* org agenda 
+#+BEGIN_SRC emacs-lisp 
+  (setq org-agenda-files (quote ("~/.emacs.d/sample/org_demo.org"))) 
+  ;;(setq org-agenda-files (append
+  ;;                        (file-expand-wildcards "~/work-orgfiles/*.org")
+  ;;                        (file-expand-wildcards "~/work-orgfiles/*.org")))
+#+END_SRC

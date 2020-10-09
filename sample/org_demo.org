@@ -1,6 +1,7 @@
 #+STARTUP: overview
 #+TITLE: org mode 例子
 #+CREATOR：JackLovel
+#+SEQ_TODO: TODO(t) 等待(w) | CANCELLED(c) 已经完成(d)
 
 *加粗*  
 /斜体/
@@ -11,9 +12,19 @@ _下划线_
 
 [[http://www.baidu.com][百度]]
 
+# Shift-左方键 或者 Shift-右方键
+# C-c C-s 开始时间; C-c C-d 结束时间 
 * 表格 
 | Name   | age | occupation |
 |--------+-----+------------|
 | Amy    |  23 | teacher    |
 | Barney |  65 | worker     |
-| Tom   |  90 | worker     |
+| Tom    |  90 | worker     |
+|--------+-----+------------|
+
+* 星期一 
+** 已经完成 玩游戏
+** 等待 写程序
+** TODO 写网页
+** TODO 去工作
+DEADLINE: <2020-10-11 日 14:00> SCHEDULED: <2020-10-10 六 12:00>
