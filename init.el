@@ -3,9 +3,10 @@
 
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
-			
+
+;; 设置国内源
+(setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+			 ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -26,7 +27,7 @@
  '(org-startup-indented t)
  '(package-selected-packages
    (quote
-    (bufler lsp-java eglot rg elfeed-goodies elfeed openwith eshell-git-prompt fish-completion exec-path-from-shell live-py-mode forge git-gutter-fringe company treemacs yasnippet grip-mode company-lsp all-the-icons-dired all-the-icons-ivy all-the-icons dired-subtree dired-narrow dictionary irony-eldoc company-irony wgrep-ag ag auto-yasnippet org-ac org-pdfview pdf-tools git-timemachine git-gutter wgrep pcre2el dired+ treemacs-magit treemacs-icons-dired treemacs-evil treemacs-persp treemacs-projectile emmet-mode smartparens samrtparents dumb-jump counsel-projectile projectile ggtags better-shell virtualenvwrapper web-mode miniedit iedit ledit expand-region hungry-delete beacon undo-tree elpy jedi flycheck ox-reveal elfeed-org zenburn-theme color-theme auto-complete counsel swiper ace-window tabbar org-bullets which-key try use-package)))
+    (auctex bufler lsp-java eglot rg elfeed-goodies elfeed openwith eshell-git-prompt fish-completion exec-path-from-shell live-py-mode forge git-gutter-fringe company treemacs yasnippet grip-mode company-lsp all-the-icons-dired all-the-icons-ivy all-the-icons dired-subtree dired-narrow dictionary irony-eldoc company-irony wgrep-ag ag auto-yasnippet org-ac org-pdfview pdf-tools git-timemachine git-gutter wgrep pcre2el dired+ treemacs-magit treemacs-icons-dired treemacs-evil treemacs-persp treemacs-projectile emmet-mode smartparens samrtparents dumb-jump counsel-projectile projectile ggtags better-shell virtualenvwrapper web-mode miniedit iedit ledit expand-region hungry-delete beacon undo-tree elpy jedi flycheck ox-reveal elfeed-org zenburn-theme color-theme auto-complete counsel swiper ace-window tabbar org-bullets which-key try use-package)))
  '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
